@@ -1,52 +1,41 @@
 import React from 'react';
 
 function ContactForm() {
- const [surname, setsurname] = React.useState('')
- const [name, setname] = React.useState('')
-  const [email, setemail] = React.useState('')
-  const[error, setError]=React.useState('')
-  // const[message,setMessage]= React.useState('')
- const [isSubmit, setSubmit] = React.useState(false)
+  const [surname, setsurname] = React.useState('');
+  const [name, setname] = React.useState('');
+  const [email, setemail] = React.useState('');
+  const[error, setError]=React.useState('');
+  const [isSubmit, setSubmit] = React.useState(false);
 
- const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-   function SurnameChange(text) {
-    console.log(text.target.value)
-    setsurname(text.target.value)
-   }
+  function SurnameChange(text) {
+    console.log(text.target.value);
+    setsurname(text.target.value);
+  }
 
   function NameChange(text) {
     console.log(text.target.value);
     setname(text.target.value);
   }
 
-   function EmailChange(text){
-    console.log(text.target.value)
-    setemail(text.target.value)
+  function EmailChange(text){
+    setemail(text.target.value);
+    console.log(text.target.value);
 
-    if(regex.test(email)===false){
-      setError("");
-      console.log('error not okay')
-      
-    }else{
-      console.log('error okay')
+    if(regex.test(text.target.value)===false){
       setError('please enter valid email')
-      return true;
+      
+    } else {
+      setError("");
+     
     }
-    }
+  }
 
-   function OnClickForm(e){
+  function OnClickForm(e) {
     setSubmit(true)
-    e.preventDefault();
-   }
-
-  //  const emailValidation =(e) => {
-  //   const regEx= /[a-zA-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8(.[a-z{2,8}])?/g
-  //   if(regEx.test(email)){
-  //     setMessage('EMAIL Is VALID')
-  //   } 
-  //  };
-    
+    e.preventDefault(); // J'ai ajouter cela , pour empecher la page de reloader apres le click
+  }
 
   return (
     <div className="container">
@@ -85,12 +74,8 @@ function ContactForm() {
           <input className="form-control" type="email" id="email" value={email} onChange={EmailChange} />
           {isSubmit && email === ""  && <p> This field is required </p>}
           <p className='text-danger'> {error}</p>
-          {/* <p>{message}</p> */}
-          {/* <p>{emailValidation}</p> */}
         </div>
-        <button className="btn btn-danger" onClick={OnClickForm} > Submit
-      
-        </button>
+        <button className="btn btn-danger" onClick={OnClickForm} > Submit</button>
       </form>
     </div>
   );
