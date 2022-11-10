@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from 'react';
 
 function ContactForm() {
  const [surname, setsurname] = React.useState('')
@@ -16,10 +15,10 @@ function ContactForm() {
     setsurname(text.target.value)
    }
 
-   function NameChange(text){
-    console.log(text.target.value)
-    setname(text.target.value)
-   }
+  function NameChange(text) {
+    console.log(text.target.value);
+    setname(text.target.value);
+  }
 
    function EmailChange(text){
     console.log(text.target.value)
@@ -49,29 +48,39 @@ function ContactForm() {
   //  };
     
 
- 
   return (
-    <div className='container'>
-
-        <h2>Contactez-Nous</h2>
-        <form >
+    <div className="container">
+      <h2>Contactez-Nous</h2>
+      <form>
         <div className="mb-3">
           <label className="form-label" htmlFor=" Nom de famille">
-          Nom de famille
+            Nom de famille
           </label>
-          <input className="form-control" type="text" id=" Nom de famille"  value={surname}  onChange={SurnameChange}/>
-          {isSubmit && surname === ""  && <p> This field is required </p>}
+          <input
+            className="form-control"
+            type="text"
+            id=" Nom de famille"
+            value={surname}
+            onChange={SurnameChange}
+          />
+          {isSubmit && surname === '' && <p> This field is required </p>}
         </div>
         <div className="mb-3">
           <label className="form-label" htmlFor=" Prénom">
-          Prénom
+            Prénom
           </label>
-          <input className="form-control" type=" Prénom" id="Prénom" value={name} onChange={NameChange} />
-          {isSubmit && name === ""  && <p> This field is required </p>}
+          <input
+            className="form-control"
+            type=" Prénom"
+            id="Prénom"
+            value={name}
+            onChange={NameChange}
+          />
+          {isSubmit && name === '' && <p> This field is required </p>}
         </div>
         <div className="mb-3">
           <label className="form-label" htmlFor="email">
-          E-mail
+            E-mail
           </label>
           <input className="form-control" type="email" id="email" value={email} onChange={EmailChange} />
           {isSubmit && email === ""  && <p> This field is required </p>}
@@ -82,8 +91,8 @@ function ContactForm() {
         <button className="btn btn-danger" onClick={OnClickForm} > Submit
       
         </button>
-        </form>
+      </form>
     </div>
-  )
+  );
 }
-export default ContactForm
+export default ContactForm;
