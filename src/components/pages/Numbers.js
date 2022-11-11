@@ -2,6 +2,7 @@ import React ,{useState}from "react";
 
 function Numbers() {
     const [number, setNumber] = useState('');
+    const[message, setMessage]=React.useState('');
     const [isSubmit, setSubmit] = React.useState(false);
 
 
@@ -10,18 +11,23 @@ function Numbers() {
         console.log(number);
         if(number === '' ){
             console.log("The number is required");
+            
         }
         else if(number % 2 === 0){   
             console.log("The number is even.");
+            setMessage('The number is even');
+        
         }
-        else{
+        else {
             console.log("The number is odd.");
-        }  
+            setMessage('The number is odd');
+        } 
     }
 
     
     function NumberChange(text) {
         setNumber(text.target.value);
+        setMessage("");
     }
 
     function OnClickForm(e) {
@@ -48,8 +54,10 @@ function Numbers() {
            />
             {/* { number!== "" && num && <p>  </p>} */}
             {isSubmit && number === '' && <p> This field is required </p>}
+            <p className='text'> {message}</p>
 
            <button type="submit" onClick={OnClickForm}> Submit</button>
+
          
           </div>
         </form>
