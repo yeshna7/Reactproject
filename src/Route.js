@@ -7,6 +7,7 @@ import Contact from './components/pages/Contact';
 import Form from './components/pages/form';
 import ContactForm from './components/pages/ContactForm';
 import Error from './components/pages/Error';
+import Numbers from "./components/pages/Numbers"
 
 function Routine(){
     return (
@@ -16,6 +17,7 @@ function Routine(){
            <Route path='/contact' element={<Contact />} />
            <Route path ='/ContactForm' element={<ContactForm />} />
            <Route path ='/Form' element={<Form />} />
+            <Route path ='/Numbers' element={<Numbers />} />
            <Route path='/*' element={<Error />} />
          </Routes>
    

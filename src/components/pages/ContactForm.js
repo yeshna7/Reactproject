@@ -23,13 +23,13 @@ function ContactForm() {
     setemail(text.target.value);
     console.log(text.target.value);
 
-    if(regex.test(text.target.value)===false){
-      setError('please enter valid email')
+     if(regex.test(text.target.value)===false){
+      //  setError('please enter valid email')
       
-    } else {
-      setError("");
+     } else {
+     setError("");
      
-    }
+     }
   }
 
   function OnClickForm(e) {
@@ -73,6 +73,7 @@ function ContactForm() {
           </label>
           <input className="form-control" type="email" id="email" value={email} onChange={EmailChange} />
           {isSubmit && email === ""  && <p> This field is required </p>}
+          { email!== "" && regex.test(email)===false && <p> Enter valid email </p>}
           <p className='text-danger'> {error}</p>
         </div>
         <button className="btn btn-danger" onClick={OnClickForm} > Submit</button>
