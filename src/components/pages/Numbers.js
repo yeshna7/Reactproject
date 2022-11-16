@@ -5,7 +5,7 @@ function Numbers() {
     const[message, setMessage]=React.useState('');
     const [isSubmit, setSubmit] = React.useState(false);
 
-
+    const regex = /^\d+(\.\d{1,2})?$/;
 
     function numcheck(){
         console.log(number);
@@ -25,9 +25,28 @@ function Numbers() {
     }
 
     
-    function NumberChange(text) {
-        setNumber(text.target.value);
+    function NumberChange(number) {
+        console.log(typeof number.target.value);
         setMessage("");
+
+       const replaced1 = number.target.value.replace(/,/g, '.').replace(/\s/g, "");
+       // parseFloat
+      console.log(typeof parseFloat(replaced1))
+       setNumber(replaced1);
+
+       console.log(typeof replaced1);
+     
+
+
+       
+
+        if(regex.test(number.target.value)===false){
+            //  setMessage('please enter valid number')
+            
+           } else {
+            setMessage("");
+           
+           }
     }
 
     function OnClickForm(e) {
@@ -35,6 +54,16 @@ function Numbers() {
         setSubmit(true)
         e.preventDefault();
         
+    }
+
+    function checkValidation () {
+        if(!number ||!isNaN(number) ) {
+            return true
+        } else {
+            return false
+        }
+
+        // return !number ||!isNaN(number) ? true : false
     }
 
     return (
@@ -47,19 +76,22 @@ function Numbers() {
           </label>
           <input
             className="form-control"
-            type="number"
-            //value={number}
-             onChange={NumberChange}
+            type="text"
+            onChange={NumberChange}
+            value={number}
             id="num" 
            />
-            {/* { number!== "" && num && <p>  </p>} */}
-            {isSubmit && number === '' && <p> This field is required </p>}
+            {isNaN(number) ? "Please insert a valable number" :""}
+            {isSubmit && number === '' && message!=="" && <p> This field is required </p>}
             <p className='text'> {message}</p>
+            
+            { !isNaN(number) && number!== "" && regex.test(number)===false && <p> Decimal number </p>}
 
-           <button type="submit" onClick={OnClickForm}> Submit</button>
+           <button disabled={checkValidation()} onClick={OnClickForm} > Submit</button>
+           
 
          
-          </div>
+        </div>
         </form>
         </div>
     );
