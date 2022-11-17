@@ -58,9 +58,9 @@ function Numbers() {
 
     function checkValidation () {
         if(!number ||!isNaN(number) ) {
-            return true
-        } else {
             return false
+        } else {
+            return true
         }
 
         // return !number ||!isNaN(number) ? true : false

@@ -9,6 +9,7 @@ function Header(){
          <Link to='/about'> About</Link>
          <Link to='/contact'> Contact</Link>
          <Link to='/ContactForm'> Contact form</Link>
+         <Link to='/Retrieve'> Retrieve</Link>
          {/* <Link to='/form'> Form</Link> */}
          <Link to='/Numbers'> Numbers</Link>
         </nav>
