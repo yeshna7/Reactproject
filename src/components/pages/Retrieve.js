@@ -4,6 +4,7 @@ import axios from "axios";
 
 function Retrieve() {
     const [users, setUsers] = useState([]);
+    // const [page, setPage] =useState([]);
 
     useEffect(() => {
         axios.get("https://bat-recup-staging-backend.cleverapps.io/api/current-annoucement")
@@ -16,33 +17,66 @@ function Retrieve() {
             });
     }, []);
 
+   
+
+
+
 
     return (
         <div>
             <ul>
             {users.map(user =>
                 <li key={user.id}>
+
+                <div>
                 {user.title}
-                {user.presentation} 
-                {user.status_subscription} 
-                {user.start_date_subscription}
+                </div>
+
+              <div>
+              {user.presentation} 
+              </div>
+
+              <div>
+              {user.status_subscription} 
+              </div>
+
+              <div>
+              {user.start_date_subscription}
+              </div>
+
+               <div>
                 {user.end_date_subscription} 
-                {user.social_link_fb}
-                {user.social_link_insta}
-                {user.web_site_url} 
-                {user.phone_number} 
-               <img src= {user.logo.url} alt=""></img>
+                </div>
+
+                <div> {user.social_link_fb}</div>
+               
+               <div>{user.social_link_insta}</div> 
+
+                <div>{user.web_site_url} </div>
+
+                <div>{user.phone_number} </div>
+
+              <div> <img src= {user.logo.url} alt=""></img> </div>
+              
                {user.photos.map(photo => (
                <img src={photo.url} alt="" width="100"></img>
-
+               
           ))} 
+          <div>
                 {user.subscription.id} 
                 {user.subscription_name} 
                 {user.subscription_limite} 
+            </div>
+
+            <div>
                 {user.activities.id} 
                 {user.activities.name}
+            </div>
+            <div>
                 {user.thematique.name}
                 {user.thematique.id}
+             </div>
+             <div>
                 {user.adress.id}
                 {user.adress.line1}
                 {user.adress.line2}
@@ -50,14 +84,17 @@ function Retrieve() {
                 {user.adress.postalCode}
                 {user.adress.country}
                 {user.adress.countryCode}
+            </div>
+            <div>
                 {user.adress.location.type}
                 {user.adress.location.lat}
                 {user.adress.location.lng}
-                
+            </div>
                 
                 </li>
                 )}
             </ul>
+           
         </div>
     );
 }
