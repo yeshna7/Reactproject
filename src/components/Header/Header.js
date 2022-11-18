@@ -12,6 +12,8 @@ function Header(){
          <Link to='/Retrieve'> Retrieve</Link>
          {/* <Link to='/form'> Form</Link> */}
          <Link to='/Numbers'> Numbers</Link>
+         <Link to='/Data'> Data</Link>
+         {/* <Link to='/DisplayId'>Display Id</Link> */}
         </nav>
 
         </div>

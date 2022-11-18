@@ -9,6 +9,8 @@ import ContactForm from './components/pages/ContactForm';
 import Error from './components/pages/Error';
 import Numbers from "./components/pages/Numbers"
 import Retrieve from "./components/pages/Retrieve"
+import DisplayId from './components/pages/DisplayId'
+import Data from './components/pages/Data'
 
 function Routine(){
     return (
@@ -20,6 +22,8 @@ function Routine(){
            <Route path ='/Form' element={<Form />} />
           <Route path ='/Numbers' element={<Numbers />} />
           <Route path ='/Retrieve' element={<Retrieve />} />
+          <Route path ='/Data' element={<Data/>} />
+          <Route path ='/DisplayId/:id' element={<DisplayId />} />
 
            <Route path='/*' element={<Error />} />
          </Routes>
