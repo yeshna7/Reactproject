@@ -36,18 +36,35 @@ function DisplayId() {
             <h1>{users.id}</h1>
             <p className="text-danger"> {error}</p>
           </div>
-          <div>
-            <h2> Title: {users?.title}</h2>
-          </div>
+          {users.title ? (
+            <div>
+              <h2> Title: {users?.title}</h2>
+            </div>
+          ) : (
+            <div></div>
+          )}
           <div> {users?.presentation}</div>
           <div>
             <img src={users?.logo?.url} alt=""></img>
           </div>
+          {users.start_date_subscription? (
+            <div>
+             <p> Start date: {users?.start_date_subscription}</p>
+            </div>
+          ) : (
+            <div></div>
+          )}
+
+         {users.end_date_subscription ? (
+            <div>
+              <p> End date: {users?.end_date_subscription}</p>
+            </div>
+          ) : (
+            <div></div>
+          )} 
+          
           <div>
-            <p> Start date: {users?.start_date_subscription}</p>
-          </div>
-          <div>
-            <p> End date: {users?.end_date_subscription}</p>
+           
           </div>
         </div>
       </div>
