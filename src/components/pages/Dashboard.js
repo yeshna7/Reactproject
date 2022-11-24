@@ -1,19 +1,31 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 function Dashboard () {
+    const navigate = useNavigate()
+
+     useEffect(() => {
+         if (!localStorage.getItem('token')) {
+            navigate('/Login')
+
+         }
+     })
+
+
     return (
         <div className='container'>
           <div className='card mt-4'>
             <div className='card-body'>
-              <h2>Dashboard</h2>
-              companySiret: "12345678912038"
-              created_from: "annuaire"
-              email: "hasina@mayasquad.com"
-              firstname: "Hasina Spexe"
-              id: 73
-              ustRegistered: false
-              lastname: "Rakotondratsirahonina"
-              newsletter: false
+              <h2 className='title text-center'>Dashboard</h2>
+              <div className='card mt-4'>
+             
+              </div>
+            <button  className='logoutBut mt-3'
+             onClick={() => {
+                localStorage.removeItem('token')
+                navigate('/Login')
+            }} 
+            > LOGOUT </button>
           </div>
           </div>
         </div>

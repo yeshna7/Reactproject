@@ -11,7 +11,6 @@ function Login () {
 
 
     const emailRef= useRef();
-    
 
     useEffect (() => {
         emailRef.current.focus();
@@ -68,9 +67,11 @@ function Login () {
         axios.post(
           'https://bat-recup-staging-backend.cleverapps.io/api/users-permissions/login-annuaire', payload
         )
+
           .then((res) => {
             console.log(res.data);
-            navigate('/contactForm')
+            localStorage.setItem('token', res.data.token)
+            navigate('/Dashboard')
     
           })
           .catch((err) => {
@@ -106,7 +107,8 @@ return (
       </div>
       <div className="mb-3">
       <label htmlFor="pwd" className="form-label">Password:</label>
-      <input type="password" 
+      <input 
+      type="password" 
       className="form-control mt-3 text-center" 
       id="pwd" 
       placeholder="Enter password" 

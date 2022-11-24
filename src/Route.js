@@ -11,6 +11,7 @@ import Home from './components/pages/Home';
 import Numbers from './components/pages/Numbers';
 import Retrieve from './components/pages/Retrieve';
 import Login from './components/pages/Login';
+import Dashboard from './components/pages/Dashboard';
 
 function Routine() {
   return (
@@ -25,6 +26,7 @@ function Routine() {
       <Route path="/Data" element={<Data />} />
       <Route path="/DisplayId/:id" element={<DisplayId />} />
       <Route path="/Login" element={<Login />} />
+      <Route path="/Dashboard" element={<Dashboard />} />
       <Route path="/*" element={<Error />} />
     </Routes>
   );
