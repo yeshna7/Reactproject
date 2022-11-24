@@ -35,6 +35,9 @@
   font-size: 28px;
   font-weight: bold;
 }
+.form-content{
+  background-color: lightgray;
+}
 
 @keyframes App-logo-spin {
   from {

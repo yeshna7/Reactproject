@@ -21,10 +21,10 @@ function Navbar() {
                 <Link to='/Contact' className='nav-links'> Contact</Link>
             </li>
             <li className='nav-item'>
-                <Link to='/form' className='nav-links'> Form</Link>
+                <Link to='/ContactForm' className='nav-links'>Contact Form</Link>
             </li>
             <li className='nav-item'>
-                <Link to='/ContactForm' className='nav-links'>Contact Form</Link>
+                <Link to='/Login' className='nav-links'>Login</Link>
             </li>
         </ul>
 
