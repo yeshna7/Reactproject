@@ -1,10 +1,12 @@
 import React,{useEffect,useRef} from 'react';
 import axios from 'axios'; 
+import {useNavigate} from 'react-router-dom';
 
 function Login () {
     const [email, setEmail] = React.useState(""); 
     const [password, setPassword] = React.useState(""); 
     const[error, setError]=React.useState('');
+    const navigate = useNavigate()
     const [isSubmit, setSubmit] = React.useState(false);
 
 
@@ -68,6 +70,7 @@ function Login () {
         )
           .then((res) => {
             console.log(res.data);
+            navigate('/contactForm')
     
           })
           .catch((err) => {
