@@ -47,25 +47,23 @@ function DisplayId() {
           <div>
             <img src={users?.logo?.url} alt=""></img>
           </div>
-          {users.start_date_subscription? (
+          {users.start_date_subscription ? (
             <div>
-             <p> Start date: {users?.start_date_subscription}</p>
+              <p> Start date: {users?.start_date_subscription}</p>
             </div>
           ) : (
             <div></div>
           )}
 
-         {users.end_date_subscription ? (
+          {users.end_date_subscription ? (
             <div>
               <p> End date: {users?.end_date_subscription}</p>
             </div>
           ) : (
             <div></div>
-          )} 
-          
-          <div>
-           
-          </div>
+          )}
+
+          <div></div>
         </div>
       </div>
     </div>
