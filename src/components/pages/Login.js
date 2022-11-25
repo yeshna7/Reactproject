@@ -2,12 +2,15 @@ import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 function Login() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [error, setError] = React.useState('');
   const navigate = useNavigate();
   const [isSubmit, setSubmit] = React.useState(false);
+  const [loading, setLoading]= React.useState( false);
+  
 
   const emailRef = useRef();
 
@@ -46,6 +49,7 @@ function Login() {
 
   function OnClickForm(e) {
     setSubmit(true);
+    setLoading(true);
     e.preventDefault();
 
     const payload = {
@@ -61,10 +65,13 @@ function Login() {
 
       .then((res) => {
         console.log(res.data);
-        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('jwt', res?.data?.jwt);
         navigate('/Dashboard');
+        setLoading(true);
+      
       })
       .catch((err) => {
+        setLoading(false);
         if (err.code === 'ERR_BAD_REQUEST') setError('No access!');
         console.log(err);
       });
@@ -72,7 +79,7 @@ function Login() {
 
   return (
     <div className="container">
-      <h1 className="title text-center">Login details</h1>
+      <h1 className="title text-center mt-4">Login details</h1>
       <form className="form-content  text-center">
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -112,10 +119,15 @@ function Login() {
           <p className="text-danger"> {error}</p>
         </div>
         <div>
-          <button className="btn btn-primary mb-3" onClick={OnClickForm}>
-            {' '}
+         {!loading && <button className="btn btn-primary mb-3" onClick={OnClickForm}>
+            {' '} 
             Log in
-          </button>
+          </button>}
+          {loading && <button className="btn btn-primary mb-3" disabled>
+            {' '} 
+           <i className='fas fa-spinner fa-spin'></i> Loading...
+          </button>}
+        
         </div>
       </form>
     </div>

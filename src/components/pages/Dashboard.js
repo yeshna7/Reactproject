@@ -5,7 +5,7 @@ function Dashboard () {
     const navigate = useNavigate()
 
      useEffect(() => {
-         if (!localStorage.getItem('token')) {
+         if (!localStorage.getItem('jwt')) {
             navigate('/Login')
 
          }
@@ -22,7 +22,7 @@ function Dashboard () {
               </div>
             <button  className='logoutBut mt-3'
              onClick={() => {
-                localStorage.removeItem('token')
+                localStorage.removeItem('jwt')
                 navigate('/Login')
             }} 
             > LOGOUT </button>
