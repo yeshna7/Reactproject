@@ -50,6 +50,8 @@ function Login() {
   function OnClickForm(e) {
     setSubmit(true);
     setLoading(true);
+    setEmail('');
+    setPassword('');
     e.preventDefault();
 
     const payload = {
